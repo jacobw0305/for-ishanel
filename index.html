@@ -129,29 +129,101 @@ button:hover {
       transform: translateY(-40px);
     }
   }
+
+  .screen {
+  display: none;
+  animation: fadeIn 0.6s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
   </style>
 </head>
 
 <body>
-  <div class="background-blur"></div>
+ <div class="background-blur"></div>
 <div class="background-blur2"></div>
-  <div class="box">
-    <h1>Initializing Girlfriend Application...</h1>
-    <p>Status: Candidate is suspiciously amazing.</p>
 
-    <button onclick="showMessage()">
-      Run Program
+<div class="box">
+
+  <!-- SCREEN 1 -->
+  <div class="screen active">
+    <h1>INITIALIZING...</h1>
+    <p>
+      put your first message here
+    </p>
+
+    <button onclick="nextScreen()">
+      CONTINUE
     </button>
-
-    <div id="message">
-      Will you be my girlfriend? :)
-    </div>
   </div>
 
+  <!-- SCREEN 2 -->
+  <div class="screen">
+    <h1>LEVEL 2</h1>
+    <p>
+      put another joke or compliment here
+    </p>
+
+    <button onclick="nextScreen()">
+      NEXT
+    </button>
+  </div>
+
+  <!-- SCREEN 3 -->
+  <div class="screen">
+    <h1>IMPORTANT MESSAGE</h1>
+    <p>
+      another custom message
+    </p>
+
+    <button onclick="nextScreen()">
+      KEEP GOING
+    </button>
+  </div>
+
+  <!-- FINAL SCREEN -->
+  <div class="screen">
+    <h1>FINAL QUESTION</h1>
+
+    <p id="message">
+      Will you be my girlfriend?
+    </p>
+
+    <button>
+      YES :)
+    </button>
+  </div>
+
+</div>
+
   <script>
-    function showMessage() {
-      document.getElementById("message").style.display = "block";
+    let currentScreen = 0;
+
+  const screens = document.querySelectorAll(".screen");
+
+  function nextScreen() {
+    screens[currentScreen].classList.remove("active");
+
+    currentScreen++;
+
+    if (currentScreen < screens.length) {
+      screens[currentScreen].classList.add("active");
     }
+  }
   </script>
 </body>
 </html>
