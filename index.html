@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A Question For You</title>
+
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .box {
+      max-width: 600px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>Initializing Girlfriend Application...</h1>
+    <p>Status: Candidate is suspiciously amazing.</p>
+
+    <button onclick="showMessage()">
+      Run Program
+    </button>
+
+    <div id="message">
+      Will you be my girlfriend? :)
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+    }
+  </script>
+</body>
+</html>
