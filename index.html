@@ -485,8 +485,12 @@ button:hover {
 
       confetti.classList.add("confetti");
 
+     const offset = (Math.random() - 0.5) * 300;
+
       confetti.style.left =
-  (window.innerWidth / 2 + (Math.random() - 0.5) * 400) + "px";
+      `calc(50% + ${offset}px)`;
+
+      confetti.style.top = "-20px";
 
       confetti.style.animationDuration =
         (Math.random() * 3 + 2) + "s";
